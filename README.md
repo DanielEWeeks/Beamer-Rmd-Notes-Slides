@@ -7,6 +7,8 @@ It also allows one to generate plain 'notes' slides, which can be
 easily all excluded or all included in the resulting set of slides
 by toggling a setting in the header_pagenrs.tex file.
 
+For a more elegant approach, see [Lincoln Mullen's code](https://gist.github.com/lmullen/c3d4c7883f081ed8692a)
+
 
 One can include notes slides as follows:
 
