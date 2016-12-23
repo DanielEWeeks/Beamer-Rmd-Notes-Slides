@@ -4,26 +4,26 @@ One can include notes as follows:
 1) In the R Markdown preamble, include a LaTeX header file using 
 code like this:
 
-output: 
-  beamer_presentation:
-     theme: "Warsaw"
-     includes:
-        in_header: header_pagenrs.tex
+output:   
+  beamer_presentation:   
+     theme: "Warsaw"   
+     includes:  
+        in_header: header_pagenrs.tex  
 
-2) In the included LaTeX header file, include these lines:
+2) In the included LaTeX header file, include these lines:  
 
-% \setbeameroption{hide notes}
-% \setbeameroption{show notes}
-\setbeameroption{show notes}
-\setbeamertemplate{note page}[plain]
+% \setbeameroption{hide notes}  
+% \setbeameroption{show notes}  
+\setbeameroption{show notes}   
+\setbeamertemplate{note page}[plain]   
 
 3) To insert a note for a given slide, after the text for that slide and 
 before the start of the next slide, include this:
 
-\note{
-\begin{center}
-\textbf{NOTE}
-\end{center} 
+\note{  
+\begin{center}  
+\textbf{NOTE}   
+\end{center}   
 
  This is a test note.  Toggle by altering 'setbeameroption' in header_pagenrs.tex
 }
