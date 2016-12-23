@@ -1,0 +1,56 @@
+---
+title: "Beamer Slide Template"
+author: "Daniel E. Weeks"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: 
+  beamer_presentation:
+     theme: "Warsaw"
+     includes:
+        in_header: header_pagenrs.tex
+---
+
+```{r setup, include=FALSE}
+#knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+library(knitr)
+library(pander)
+# Set so that long lines in R will be wrapped:
+opts_chunk$set(tidy.opts=list(width.cutoff=50),tidy=TRUE)
+```
+
+```{r set-options, echo=FALSE, cache=FALSE}
+options(width = 50)
+```
+
+Beamer R Markdown slide template
+========================================================
+
+* Easily generate Beamer slides from R Markdown.
+
+```{r}
+plot(sort(rnorm(100)))
+```
+
+Beamer R Markdown slide template
+========================================================
+
+* Notes slides can be included or excluded easily. 
+
+
+\note{
+\begin{center}
+\textbf{NOTE}
+\end{center}
+
+This is a test note.  Toggle by altering 'setbeameroption' in header\_pagenrs.tex
+}
+
+Beamer R Markdown slide template
+========================================================
+
+The inclusion/exclusion of the notes pages is controlled by the LaTeX in the `header_pagenrs.tex` file:
+
+* To include the notes pages, set `setbeameroption` to `show notes`
+* To exclude the notes pages, set `setbeameroption` to `hide notes`

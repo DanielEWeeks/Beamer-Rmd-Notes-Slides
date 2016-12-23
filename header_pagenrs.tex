@@ -1,0 +1,10 @@
+% \setbeamersize{text margin left = 16pt, text margin right = 16pt}
+\newcommand*\oldmacro{}%
+\let\oldmacro\insertshorttitle%
+\renewcommand*\insertshorttitle{%
+   \oldmacro\hfill%
+   \insertframenumber\,/\,\inserttotalframenumber}
+% \setbeameroption{hide notes}
+% \setbeameroption{show notes}
+\setbeameroption{show notes}
+\setbeamertemplate{note page}[plain]
