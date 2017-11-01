@@ -5,6 +5,7 @@ date: "`r format(Sys.time(), '%B %d, %Y, %R')`"
 output:
   pdf_document:
     toc: true
+    number_sections: true
 ---
 
 ```{r,echo=FALSE,message=FALSE,warning=FALSE}
@@ -12,3 +13,26 @@ require(knitr)
 # Set so that long lines in R will be wrapped:
 opts_chunk$set(tidy.opts=list(width.cutoff=80),tidy=TRUE)
 ```
+
+# Load Libraries
+
+```{r load_libraries,message=FALSE}
+
+```
+
+# Input directory and files 
+
+```{r}
+# Print the working directory
+getwd()
+```
+The input files used in this analysis are ... and can be found in ... 
+
+# Analysis
+
+# Session Information
+
+```{r}
+sessionInfo()
+```
+
