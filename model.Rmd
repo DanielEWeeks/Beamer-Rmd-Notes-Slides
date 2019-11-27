@@ -3,6 +3,11 @@ title: "TITLE"
 author: "Daniel E. Weeks"
 date: "`r format(Sys.time(), '%B %d, %Y, %R')`"
 output:
+  html_document:
+    df_print: paged
+    toc: yes
+    toc_depth: '3'
+    code_folding: show
   pdf_document:
     toc: true
     number_sections: true
