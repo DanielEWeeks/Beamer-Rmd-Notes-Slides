@@ -2,6 +2,10 @@
 title: "TITLE"
 author: "Daniel E. Weeks"
 date: "`r format(Sys.time(), '%B %d, %Y, %R')`"
+header-includes:
+- \usepackage{pdflscape}
+- \newcommand{\blandscape}{\begin{landscape}}
+- \newcommand{\elandscape}{\end{landscape}}
 output:
   html_document:
     df_print: paged
@@ -13,6 +17,7 @@ output:
     toc: true
     number_sections: true
     toc_depth: 3
+    md_extensions: +raw_attribute
 ---
 
 ```{r,echo=FALSE,message=FALSE,warning=FALSE}
@@ -45,6 +50,9 @@ getwd()
 The input files used in this analysis are ... and can be found in ... 
 
 # Analysis
+
+```{=latex}
+```
 
 # Session Information
 
