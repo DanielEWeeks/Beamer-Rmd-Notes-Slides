@@ -17,7 +17,7 @@ output:
     toc: true
     number_sections: true
     toc_depth: 3
-    md_extensions: +raw_attribute
+#   md_extensions: +raw_attribute
 ---
 
 ```{r,echo=FALSE,message=FALSE,warning=FALSE}
@@ -38,7 +38,8 @@ options(error = save_all)
 # Load Libraries
 
 ```{r load_libraries,message=FALSE}
-
+library(tidyverse)
+library(tidylog)
 ```
 
 # Input directory and files 
@@ -52,6 +53,9 @@ The input files used in this analysis are ... and can be found in ...
 # Analysis
 
 ```{=latex}
+For this raw LaTeX chunk to work, need to turn on this option in the YAML header
+above:
+%   md_extensions: +raw_attribute
 ```
 
 # Session Information
