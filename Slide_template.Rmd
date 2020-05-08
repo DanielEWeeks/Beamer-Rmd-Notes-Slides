@@ -28,8 +28,7 @@ opts_chunk$set(tidy.opts=list(width.cutoff=50),tidy=TRUE)
 options(width = 50)
 ```
 
-Beamer R Markdown slide template
-========================================================
+# Beamer R Markdown slide template
 
 * Easily generate Beamer slides from R Markdown.
 
@@ -37,8 +36,7 @@ Beamer R Markdown slide template
 plot(sort(rnorm(100)))
 ```
 
-Beamer R Markdown slide template
-========================================================
+# Beamer R Markdown slide template
 
 * Notes slides can be included or excluded easily. 
 
@@ -51,8 +49,7 @@ Beamer R Markdown slide template
 This is a test note.  Toggle by altering 'setbeameroption' in header\_pagenrs.tex
 }
 
-Beamer R Markdown slide template
-========================================================
+# Beamer R Markdown slide template
 
 The inclusion/exclusion of the notes pages is controlled by the LaTeX in the `header_pagenrs.tex` file:
 
