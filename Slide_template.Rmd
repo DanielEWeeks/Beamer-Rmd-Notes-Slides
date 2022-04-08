@@ -3,7 +3,7 @@ title: "Beamer Slide Template"
 author: "Daniel E. Weeks"
 institute: |
         | Department of Human Genetics 
-        | Graduate School of Public Health
+        | School of Public Health
         | University of Pittsburgh
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: 
