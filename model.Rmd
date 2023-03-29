@@ -6,17 +6,19 @@ header-includes:
 - \usepackage{pdflscape}
 - \newcommand{\blandscape}{\begin{landscape}}
 - \newcommand{\elandscape}{\end{landscape}}
+- \usepackage{fvextra}
+- \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
 output:
+  pdf_document:
+    toc: true
+    number_sections: true
+    toc_depth: 3
   html_document:
     df_print: paged
     toc: true
     number_sections: true
     toc_depth: '3'
     code_folding: show
-  pdf_document:
-    toc: true
-    number_sections: true
-    toc_depth: 3
 #   md_extensions: +raw_attribute
 ---
 
@@ -34,6 +36,11 @@ save_all <- function() {
 options(error = save_all)
 ```
 
+```{r, echo=FALSE,comment=NA}
+start_time <- Sys.time()
+```
+
+**Start time:** `r Sys.time()`
 
 # Load Libraries
 
@@ -59,6 +66,16 @@ above:
 ```
 
 # Session Information
+
+```{r, echo=FALSE}
+end_time <- Sys.time()
+tdiff <- end_time - start_time
+tdiffstr <- paste0(round(tdiff,3)," ",attr(tdiff,"units"))
+```
+
+**End time:** `r Sys.time()`      
+**Elapsed time:** `r tdiffstr` 
+
 
 ```{r}
 sessionInfo()
