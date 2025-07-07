@@ -57,6 +57,12 @@ getwd()
 ```
 The input files used in this analysis are ... and can be found in ... 
 
+To draw graphs containing large numbers of points, use these R chunk options:
+
+```
+{r, dpi=600, dev='png'}
+```
+
 # Analysis
 
 ```{=latex}
@@ -64,6 +70,14 @@ For this raw LaTeX chunk to work, need to turn on this option in the YAML header
 above:
 %   md_extensions: +raw_attribute
 ```
+
+# Time Stamp
+
+```{r}
+TimeStampNow <- gsub(":","",gsub(" ","_",format(Sys.time())))
+TimeStampNow
+```
+
 
 # Session Information
 
