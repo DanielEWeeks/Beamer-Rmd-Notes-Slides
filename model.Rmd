@@ -36,6 +36,8 @@ save_all <- function() {
 options(error = save_all)
 ```
 
+------
+
 ```{r, echo=FALSE,comment=NA}
 start_time <- Sys.time()
 ```
@@ -85,11 +87,17 @@ TimeStampNow
 end_time <- Sys.time()
 tdiff <- end_time - start_time
 tdiffstr <- paste0(round(tdiff,3)," ",attr(tdiff,"units"))
+
+mem_use <- gc()
+MaxMemUseCol <- which(colnames(mem_use)=="max used") + 1
+max_mem_use <- mem_use[1,MaxMemUseCol] + mem_use[2,MaxMemUseCol]
 ```
 
 **End time:** `r Sys.time()`      
-**Elapsed time:** `r tdiffstr` 
+**Elapsed time:** `r tdiffstr`         
+**Memory used:** `r sprintf("%.1f", max_mem_use)` MB or `r sprintf("%.1f", max_mem_use/1024)` GB
 
+              
 
 ```{r}
 sessionInfo()
