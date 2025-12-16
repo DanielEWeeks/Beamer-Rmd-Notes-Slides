@@ -36,9 +36,32 @@ save_all <- function() {
 options(error = save_all)
 ```
 
+```{r, echo=FALSE}
+# Turn on chunk timing
+# Using code from
+# https://bookdown.org/yihui/rmarkdown-cookbook/time-chunk.html
+
+all_times <- list()  # store the time for each chunk
+knitr::knit_hooks$set(time_it = local({
+  now <- NULL
+  function(before, options) {
+    if (before) {
+      now <<- Sys.time()
+    } else {
+      res <- difftime(Sys.time(), now)
+      all_times[[options$label]] <<- res
+    }
+  }
+}))
+```
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(time_it = TRUE)
+```
+
 ------
 
-```{r, echo=FALSE,comment=NA}
+```{r start_time, echo=FALSE,comment=NA}
 start_time <- Sys.time()
 ```
 
@@ -49,11 +72,12 @@ start_time <- Sys.time()
 ```{r load_libraries,message=FALSE}
 library(tidyverse)
 library(tidylog)
+library(pander)
 ```
 
 # Input directory and files 
 
-```{r}
+```{r getwd}
 # Print the working directory
 getwd()
 ```
@@ -75,13 +99,23 @@ above:
 
 # Time Stamp
 
-```{r}
+```{r TimeStampNow}
 TimeStampNow <- gsub(":","",gsub(" ","_",format(Sys.time())))
 TimeStampNow
 ```
 
 
 # Session Information
+
+```{r ChunkTimes, echo=FALSE}
+as.data.frame(all_times) %>% t() %>% as.data.frame() -> df
+df$ChunkName <- row.names(df)
+df$Seconds <- as.numeric(gsub(" secs","",df$V1))
+row.names(df) <- NULL
+df$Minutes <- df$Seconds/60
+df <- df %>% dplyr::select(ChunkName, Seconds, Minutes)
+pander(df, caption="Chunk Timing")
+```
 
 ```{r, echo=FALSE}
 end_time <- Sys.time()
@@ -92,6 +126,8 @@ mem_use <- gc()
 MaxMemUseCol <- which(colnames(mem_use)=="max used") + 1
 max_mem_use <- mem_use[1,MaxMemUseCol] + mem_use[2,MaxMemUseCol]
 ```
+
+------------------ 
 
 **End time:** `r Sys.time()`      
 **Elapsed time:** `r tdiffstr`         
