@@ -108,12 +108,14 @@ TimeStampNow
 # Session Information
 
 ```{r ChunkTimes, echo=FALSE}
-as.data.frame(all_times) %>% t() %>% as.data.frame() -> df
-df$ChunkName <- row.names(df)
-df$Seconds <- as.numeric(gsub(" secs","",df$V1))
+list1 <- lapply(all_times, function(x) {as.numeric(x, units="secs")})
+as.data.frame(list1) %>% t() %>% as.data.frame() -> df
+df$`Chunk Name` <- row.names(df)
+df$Seconds <- df$V1
 row.names(df) <- NULL
 df$Minutes <- df$Seconds/60
-df <- df %>% dplyr::select(ChunkName, Seconds, Minutes)
+df$Hours <- df$Minutes/60
+df <- df %>% dplyr::select(`Chunk Name`, Seconds, Minutes, Hours)
 pander(df, caption="Chunk Timing")
 ```
 
